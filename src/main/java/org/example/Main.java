@@ -43,37 +43,37 @@ public class Main {
         }
         return minimalIndex;
     }
-//
-//    // Overlapping intervalls
-//    // Given a collection of intervals, merge all overlapping intervals and return an array of the non-overlapping intervals that cover all the intervals in the input.
-//    public static List<List<Integer>> overlappingIntervalls(List<List<Integer>> input) {
-//        List<Integer> temporaryList;
-//        for (int i = 0; i < input.size(); i++) {
-//            for (int j = 0; j < input.size() - i - 1; j++) {
-//                if(input.get(j).get(0) > input.get(j + 1).get(0)) {
-//                    temporaryList = input.get(j);
-//                    input.set(j, input.get(j + 1));
-//                    input.set(j + 1, temporaryList);
-//                }
-//            }
-//        }
-//
-//        temporaryList = input.get(0);
-//        List<List<Integer>> finalList = new ArrayList<>();
-//        for (int i = 0; i < input.size() - 1; i++) {
-//            if(input.get(i + 1).get(0) <= temporaryList.get(1)) {
-//                if(temporaryList.get(1) < input.get(i + 1).get(1)) {
-//                    temporaryList.set(1, input.get(i + 1).get(1));
-//                }
-//            } else {
-//                finalList.add(new ArrayList<>(temporaryList));
-//                temporaryList.set(0, input.get(i + 1).get(0));
-//                temporaryList.set(1, input.get(i + 1).get(1));
-//            }
-//        }
-//        finalList.add(new ArrayList<>(temporaryList));
-//        return finalList;
-//    }
+
+    // Overlapping intervalls
+    // Given a collection of intervals, merge all overlapping intervals and return an array of the non-overlapping intervals that cover all the intervals in the input.
+    public static List<List<Integer>> overlappingIntervalls(List<List<Integer>> input) {
+        List<Integer> temporaryList;
+        for (int i = 0; i < input.size(); i++) {
+            for (int j = 0; j < input.size() - i - 1; j++) {
+                if(input.get(j).get(0) > input.get(j + 1).get(0)) {
+                    temporaryList = input.get(j);
+                    input.set(j, input.get(j + 1));
+                    input.set(j + 1, temporaryList);
+                }
+            }
+        }
+
+        temporaryList = input.get(0);
+        List<List<Integer>> finalList = new ArrayList<>();
+        for (int i = 0; i < input.size() - 1; i++) {
+            if(input.get(i + 1).get(0) <= temporaryList.get(1)) {
+                if(temporaryList.get(1) < input.get(i + 1).get(1)) {
+                    temporaryList.set(1, input.get(i + 1).get(1));
+                }
+            } else {
+                finalList.add(new ArrayList<>(temporaryList));
+                temporaryList.set(0, input.get(i + 1).get(0));
+                temporaryList.set(1, input.get(i + 1).get(1));
+            }
+        }
+        finalList.add(new ArrayList<>(temporaryList));
+        return finalList;
+    }
 //
 //    // Palindrome
 //    // Determine if the input string is a palindrome.(Reads the same backwards)
