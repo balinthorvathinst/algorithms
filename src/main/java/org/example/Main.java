@@ -74,34 +74,34 @@ public class Main {
         finalList.add(new ArrayList<>(temporaryList));
         return finalList;
     }
-//
-//    // Palindrome
-//    // Determine if the input string is a palindrome.(Reads the same backwards)
-//    public static boolean isPalindrome(String s) {
-//        String cleanedS = s.toLowerCase();
-//
-//        StringBuilder stringBuilder = new StringBuilder();
-//
-//        for (int i = 0; i < cleanedS.length(); i++) {
-//            if (Character.isLetterOrDigit(cleanedS.charAt(i))) {
-//                stringBuilder.append(cleanedS.charAt(i));
-//            }
-//        }
-//
-//        String processedString = stringBuilder.toString();
-//
-//        int i = 0;
-//        int j = processedString.length() - 1;
-//
-//        while(i < j) {
-//            if(processedString.charAt(i) != processedString.charAt(j)) {
-//                return false;
-//            }
-//            i++;
-//            j--;
-//        }
-//        return true;
-//    }
+
+    // Palindrome
+    // Determine if the input string is a palindrome.(Reads the same backwards)
+    public static boolean isPalindrome(String s) {
+        String cleanedS = s.toLowerCase();
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < cleanedS.length(); i++) {
+            if (Character.isLetterOrDigit(cleanedS.charAt(i))) {
+                stringBuilder.append(cleanedS.charAt(i));
+            }
+        }
+
+        String processedString = stringBuilder.toString();
+
+        int i = 0;
+        int j = processedString.length() - 1;
+
+        while(i < j) {
+            if(processedString.charAt(i) != processedString.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
 //
 //    // Two Sum
 //    // Identify two distinct numbers in the array that add up to the target.
