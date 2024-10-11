@@ -23,26 +23,26 @@ public class Main {
     // Given a string, find the first character that does not repeat and return its index. If it doesn't exist, return -1.
 
 
-//    public static int firstUniqueChar(String str) {
-//        Map<Character, Integer> characterToFrequency = new HashMap<>();
-//        for (int i = 0; i < str.length(); i++) {
-//            char currentCharacter = str.charAt(i);
-//            if (!characterToFrequency.containsKey(currentCharacter)) {
-//                characterToFrequency.put(currentCharacter, 1);
-//            } else {
-//                characterToFrequency.put(currentCharacter, characterToFrequency.get(currentCharacter) + 1);
-//            }
-//        }
-//
-//        int minimalIndex = -1;
-//        for (int i = 0; i < str.length(); i++) {
-//            if (characterToFrequency.get(str.charAt(i)) == 1) {
-//                minimalIndex = i;
-//                break;
-//            }
-//        }
-//        return minimalIndex;
-//    }
+    public static int firstUniqueChar(String str) {
+        Map<Character, Integer> characterToFrequency = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            char currentCharacter = str.charAt(i);
+            if (!characterToFrequency.containsKey(currentCharacter)) {
+                characterToFrequency.put(currentCharacter, 1);
+            } else {
+                characterToFrequency.put(currentCharacter, characterToFrequency.get(currentCharacter) + 1);
+            }
+        }
+
+        int minimalIndex = -1;
+        for (int i = 0; i < str.length(); i++) {
+            if (characterToFrequency.get(str.charAt(i)) == 1) {
+                minimalIndex = i;
+                break;
+            }
+        }
+        return minimalIndex;
+    }
 //
 //    // Overlapping intervalls
 //    // Given a collection of intervals, merge all overlapping intervals and return an array of the non-overlapping intervals that cover all the intervals in the input.
