@@ -102,28 +102,28 @@ public class Main {
         }
         return true;
     }
-//
-//    // Two Sum
-//    // Identify two distinct numbers in the array that add up to the target.
-//    public static int[] twoSum(int[] nums, int target) {
-//        int[] indices = new int[2];
-//        boolean found = false;
-//
-//        for (int i = 0; i < nums.length - 1; i++) {
-//            for (int j = i + 1; j < nums.length; j++) {
-//                if (nums[i] + nums[j] == target) {
-//                    if (found) {
-//                        throw new RuntimeException("Already found!");
-//                    }
-//                    indices[0] = i;
-//                    indices[1] = j;
-//                    found = true;
-//                }
-//            }
-//        }
-//        return indices;
-//    }
-//
+
+    // Two Sum
+    // Identify two distinct numbers in the array that add up to the target.
+    public static int[] twoSum(int[] nums, int target) {
+        int[] indices = new int[2];
+        boolean found = false;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    if (found) {
+                        throw new RuntimeException("Already found!");
+                    }
+                    indices[0] = i;
+                    indices[1] = j;
+                    found = true;
+                }
+            }
+        }
+        return indices;
+    }
+
 //    // Longest Substring Without Repeating Characters
 //    // Find the length of the longest substring in a given string that contains no repeating characters.
 //    public static int lengthOfLongestSubstring(String s) {
