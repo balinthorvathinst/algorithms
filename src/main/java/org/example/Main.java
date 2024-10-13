@@ -5,10 +5,10 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(insert(List.of(List.of(1,2), List.of(3,5), List.of(6,7), List.of(8,10), List.of(12,16)), List.of(4,8)));
-        System.out.println(insert(List.of(List.of(3,5), List.of(6,9), List.of(11,12)), List.of(13,14)));
-        System.out.println(insert(List.of(List.of(4,5)), List.of(1,2)));
-        System.out.println(insert(List.of(List.of(4,5)), List.of(5,10)));
+        System.out.println(insert2(List.of(List.of(1,2), List.of(3,5), List.of(6,7), List.of(8,10), List.of(12,16)), Arrays.asList(4,8)));
+        System.out.println(insert2(List.of(List.of(3,5), List.of(6,9), List.of(11,12)), Arrays.asList(13,14)));
+        System.out.println(insert2(List.of(List.of(4,5)), Arrays.asList(1,2)));
+        System.out.println(insert2(List.of(List.of(4,5)), Arrays.asList(5,10)));
     }
 
     // Reverse a string
@@ -221,4 +221,32 @@ public class Main {
         return finalList;
     }
 
+    // Good solution
+    public static List<List<Integer>> insert2(List<List<Integer>> intervals, List<Integer> newInterval) {
+        List<List<Integer>> merged = new ArrayList<>();
+        int i = 0;
+        int n = intervals.size();
+
+        // Add all intervals ending before newInterval starts
+        while (i < n && intervals.get(i).get(1) < newInterval.get(0)) {
+            merged.add(intervals.get(i));
+            i++;
+        }
+
+        // Merge overlapping intervals with newInterval
+        while (i < n && intervals.get(i).get(0) <= newInterval.get(1)) {
+            newInterval.set(0, Math.min(newInterval.get(0), intervals.get(i).get(0)));
+            newInterval.set(1, Math.max(newInterval.get(1), intervals.get(i).get(1)));
+            i++;
+        }
+        merged.add(newInterval);
+
+        // Add remaining intervals
+        while (i < n) {
+            merged.add(intervals.get(i));
+            i++;
+        }
+
+        return merged;
+    }
 }
