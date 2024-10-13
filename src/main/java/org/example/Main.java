@@ -124,29 +124,29 @@ public class Main {
         return indices;
     }
 
-//    // Longest Substring Without Repeating Characters
-//    // Find the length of the longest substring in a given string that contains no repeating characters.
-//    public static int lengthOfLongestSubstring(String s) {
-//        int i = 0;
-//        int j;
-//        int maxLength = 0;
-//        StringBuilder temporary = new StringBuilder();
-//
-//        while(i < s.length() && s.length() - i > maxLength) {
-//            j = i;
-//            while(j < s.length() && !temporary.toString().contains(String.valueOf(s.charAt(j)))) {
-//                temporary.append(s.charAt(j));
-//                j++;
-//            }
-//            if(maxLength < temporary.length()) {
-//                maxLength = temporary.length();
-//            }
-//            temporary = new StringBuilder();
-//            i++;
-//        }
-//        return maxLength;
-//    }
-//
+    // Longest Substring Without Repeating Characters
+    // Find the length of the longest substring in a given string that contains no repeating characters.
+    public static int lengthOfLongestSubstring(String s) {
+        int i = 0;
+        int j;
+        int maxLength = 0;
+        StringBuilder temporary = new StringBuilder();
+
+        while(i < s.length() && s.length() - i > maxLength) {
+            j = i;
+            while(j < s.length() && !temporary.toString().contains(String.valueOf(s.charAt(j)))) {
+                temporary.append(s.charAt(j));
+                j++;
+            }
+            if(maxLength < temporary.length()) {
+                maxLength = temporary.length();
+            }
+            temporary = new StringBuilder();
+            i++;
+        }
+        return maxLength;
+    }
+
 //    // Insert interval
 //    // Insert a new interval into a sorted list of non-overlapping intervals and merge if necessary.
 //    public class IntervalInsertion {
