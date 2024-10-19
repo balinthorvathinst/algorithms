@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(findMaximum(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
+        System.out.println(sumArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
     }
 
     // Reverse a string
@@ -247,16 +247,26 @@ public class Main {
         return merged;
     }
 
+    // Max
     public static int findMaximum(int[] nums) {
         if (nums.length != 0) {
             int max = nums[0];
-            for (int i = 0; i < nums.length; i++) {
-                if (nums[i] > max) {
-                    max = nums[i];
+            for (int num : nums) {
+                if (num > max) {
+                    max = num;
                 }
             }
             return max;
         }
         return 0;
+    }
+
+    // Sum all elements in an array
+    public static int sumArray(int[] nums) {
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        return sum;
     }
 }
