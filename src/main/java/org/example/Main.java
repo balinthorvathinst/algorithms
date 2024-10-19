@@ -5,10 +5,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(insert2(List.of(List.of(1,2), List.of(3,5), List.of(6,7), List.of(8,10), List.of(12,16)), Arrays.asList(4,8)));
-        System.out.println(insert2(List.of(List.of(3,5), List.of(6,9), List.of(11,12)), Arrays.asList(13,14)));
-        System.out.println(insert2(List.of(List.of(4,5)), Arrays.asList(1,2)));
-        System.out.println(insert2(List.of(List.of(4,5)), Arrays.asList(5,10)));
+        System.out.println(findMaximum(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
     }
 
     // Reverse a string
@@ -248,5 +245,18 @@ public class Main {
         }
 
         return merged;
+    }
+
+    public static int findMaximum(int[] nums) {
+        if (nums.length != 0) {
+            int max = nums[0];
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] > max) {
+                    max = nums[i];
+                }
+            }
+            return max;
+        }
+        return 0;
     }
 }
