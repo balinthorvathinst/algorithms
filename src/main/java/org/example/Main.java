@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(sumArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
+        System.out.println(removeDuplicates(new int[]{1, 1, 1, 5, 5, 6, 7, 8, 9, 10}));
     }
 
     // Reverse a string
@@ -268,5 +268,14 @@ public class Main {
             sum += num;
         }
         return sum;
+    }
+
+    // Remove duplicates
+    public static int[] removeDuplicates(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+        return set.stream().mapToInt(Integer::intValue).toArray();
     }
 }
