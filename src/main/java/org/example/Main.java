@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(removeDuplicates(new int[]{1, 1, 1, 5, 5, 6, 7, 8, 9, 10}));
+        System.out.println(countVowels("Hello Worldaaaa!"));
     }
 
     // Reverse a string
@@ -277,5 +277,17 @@ public class Main {
             set.add(num);
         }
         return set.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    // Count vowels
+    public static int countVowels(String s) {
+        Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
+        int count = 0;
+        for (char c : s.toCharArray()) {
+            if (vowels.contains(c)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
