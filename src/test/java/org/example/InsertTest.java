@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
 
-class InsertTest {
+class InsertTest extends BaseTest {
 
     @Test
     void testInsert() {
@@ -18,7 +18,7 @@ class InsertTest {
             Arrays.asList(1, 5),
             Arrays.asList(6, 9)
         );
-        assertEquals(expected1, Main.insert(intervals1, newInterval1));
+        assertEquals(expected1, algorithmService.insert(intervals1, newInterval1));
 
         // Test case 2: Insert into empty list
         List<List<Integer>> intervals2 = new ArrayList<>();
@@ -26,7 +26,7 @@ class InsertTest {
         List<List<Integer>> expected2 = Arrays.asList(
             Arrays.asList(1, 3)
         );
-        assertEquals(expected2, Main.insert(intervals2, newInterval2));
+        assertEquals(expected2, algorithmService.insert(intervals2, newInterval2));
 
         // Test case 3: Insert at the beginning
         List<List<Integer>> intervals3 = Arrays.asList(
@@ -39,7 +39,7 @@ class InsertTest {
             Arrays.asList(2, 4),
             Arrays.asList(5, 7)
         );
-        assertEquals(expected3, Main.insert(intervals3, newInterval3));
+        assertEquals(expected3, algorithmService.insert(intervals3, newInterval3));
 
         // Test case 4: Insert at the end
         List<List<Integer>> intervals4 = Arrays.asList(
@@ -52,7 +52,7 @@ class InsertTest {
             Arrays.asList(4, 6),
             Arrays.asList(7, 8)
         );
-        assertEquals(expected4, Main.insert(intervals4, newInterval4));
+        assertEquals(expected4, algorithmService.insert(intervals4, newInterval4));
 
         // Test case 5: Insert overlapping multiple intervals
         List<List<Integer>> intervals5 = Arrays.asList(
@@ -68,6 +68,6 @@ class InsertTest {
             Arrays.asList(3, 10),
             Arrays.asList(12, 16)
         );
-        assertEquals(expected5, Main.insert(intervals5, newInterval5));
+        assertEquals(expected5, algorithmService.insert(intervals5, newInterval5));
     }
 } 

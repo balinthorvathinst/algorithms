@@ -3,45 +3,45 @@ package org.example;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class LengthOfLongestSubstringTest {
+class LengthOfLongestSubstringTest extends BaseTest {
 
     @Test
     void testBasicCase() {
-        assertEquals(3, Main.lengthOfLongestSubstring("abcabcbb"));
+        assertEquals(3, algorithmService.lengthOfLongestSubstring("abcabcbb"));
     }
 
     @Test
     void testAllSameCharacters() {
-        assertEquals(1, Main.lengthOfLongestSubstring("bbbbb"));
+        assertEquals(1, algorithmService.lengthOfLongestSubstring("bbbbb"));
     }
 
     @Test
     void testEmptyString() {
-        assertEquals(0, Main.lengthOfLongestSubstring(""));
+        assertEquals(0, algorithmService.lengthOfLongestSubstring(""));
     }
 
     @Test
     void testSingleCharacter() {
-        assertEquals(1, Main.lengthOfLongestSubstring("a"));
+        assertEquals(1, algorithmService.lengthOfLongestSubstring("a"));
     }
 
     @Test
     void testStringWithSpaces() {
-        assertEquals(3, Main.lengthOfLongestSubstring("a b c d e"));
+        assertEquals(3, algorithmService.lengthOfLongestSubstring("a b c d e"));
     }
 
     @Test
     void testStringWithSpecialCharacters() {
-        assertEquals(3, Main.lengthOfLongestSubstring("pwwkew"));
+        assertEquals(3, algorithmService.lengthOfLongestSubstring("pwwkew"));
     }
 
     @Test
     void testStringWithRepeatedCharacters() {
-        assertEquals(3, Main.lengthOfLongestSubstring("dvdf"));
+        assertEquals(3, algorithmService.lengthOfLongestSubstring("dvdf"));
     }
 
     @Test
     void testStringWithNumbers() {
-        assertEquals(4, Main.lengthOfLongestSubstring("1234"));
+        assertEquals(4, algorithmService.lengthOfLongestSubstring("1234"));
     }
 } 

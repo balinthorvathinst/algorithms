@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
 
-class OverlappingIntervallsTest {
+class OverlappingIntervallsTest extends BaseTest {
 
     @Test
     void testBasicOverlappingIntervals() {
@@ -19,7 +19,7 @@ class OverlappingIntervallsTest {
             Arrays.asList(8, 10),
             Arrays.asList(15, 18)
         );
-        assertEquals(expected, Main.overlappingIntervalls(input));
+        assertEquals(expected, algorithmService.overlappingIntervalls(input));
     }
 
     @Test
@@ -34,7 +34,7 @@ class OverlappingIntervallsTest {
             Arrays.asList(3, 4),
             Arrays.asList(5, 6)
         );
-        assertEquals(expected, Main.overlappingIntervalls(input));
+        assertEquals(expected, algorithmService.overlappingIntervalls(input));
     }
 
     @Test
@@ -47,14 +47,14 @@ class OverlappingIntervallsTest {
         List<List<Integer>> expected = Arrays.asList(
             Arrays.asList(1, 6)
         );
-        assertEquals(expected, Main.overlappingIntervalls(input));
+        assertEquals(expected, algorithmService.overlappingIntervalls(input));
     }
 
     @Test
     void testEmptyList() {
         List<List<Integer>> input = Collections.emptyList();
         List<List<Integer>> expected = Collections.emptyList();
-        assertEquals(expected, Main.overlappingIntervalls(input));
+        assertEquals(expected, algorithmService.overlappingIntervalls(input));
     }
 
     @Test
@@ -65,6 +65,6 @@ class OverlappingIntervallsTest {
         List<List<Integer>> expected = Arrays.asList(
             Arrays.asList(1, 3)
         );
-        assertEquals(expected, Main.overlappingIntervalls(input));
+        assertEquals(expected, algorithmService.overlappingIntervalls(input));
     }
 } 
