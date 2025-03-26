@@ -1,0 +1,24 @@
+# IntelliJ IDEA files
+*.iml
+.idea/
+
+# Compiled Java class files
+*.class
+target/
+
+# Surefire reports
+**/surefire-reports/
+**/TEST-*.xml
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Build output
+build/
+out/
+bin/
+
+# Logs
+*.log 
