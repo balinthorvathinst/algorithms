@@ -46,32 +46,39 @@ public class Main {
     // Overlapping intervalls
     // Given a collection of intervals, merge all overlapping intervals and return an array of the non-overlapping intervals that cover all the intervals in the input.
     public static List<List<Integer>> overlappingIntervalls(List<List<Integer>> input) {
-        List<Integer> temporaryList;
-        for (int i = 0; i < input.size(); i++) {
-            for (int j = 0; j < input.size() - i - 1; j++) {
-                if (input.get(j).get(0) > input.get(j + 1).get(0)) {
-                    temporaryList = input.get(j);
-                    input.set(j, input.get(j + 1));
-                    input.set(j + 1, temporaryList);
+        if (input == null || input.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        // Sort intervals by start time
+        List<List<Integer>> sortedInput = new ArrayList<>(input);
+        for (int i = 0; i < sortedInput.size(); i++) {
+            for (int j = 0; j < sortedInput.size() - i - 1; j++) {
+                if (sortedInput.get(j).get(0) > sortedInput.get(j + 1).get(0)) {
+                    List<Integer> temp = sortedInput.get(j);
+                    sortedInput.set(j, sortedInput.get(j + 1));
+                    sortedInput.set(j + 1, temp);
                 }
             }
         }
 
-        temporaryList = input.get(0);
-        List<List<Integer>> finalList = new ArrayList<>();
-        for (int i = 0; i < input.size() - 1; i++) {
-            if (input.get(i + 1).get(0) <= temporaryList.get(1)) {
-                if (temporaryList.get(1) < input.get(i + 1).get(1)) {
-                    temporaryList.set(1, input.get(i + 1).get(1));
-                }
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> currentInterval = new ArrayList<>(sortedInput.get(0));
+
+        for (int i = 1; i < sortedInput.size(); i++) {
+            if (sortedInput.get(i).get(0) <= currentInterval.get(1)) {
+                // Overlapping interval, update the end time if needed
+                currentInterval.set(1, Math.max(currentInterval.get(1), sortedInput.get(i).get(1)));
             } else {
-                finalList.add(new ArrayList<>(temporaryList));
-                temporaryList.set(0, input.get(i + 1).get(0));
-                temporaryList.set(1, input.get(i + 1).get(1));
+                // Non-overlapping interval, add current to result and start new interval
+                result.add(new ArrayList<>(currentInterval));
+                currentInterval = new ArrayList<>(sortedInput.get(i));
             }
         }
-        finalList.add(new ArrayList<>(temporaryList));
-        return finalList;
+        
+        // Add the last interval
+        result.add(currentInterval);
+        return result;
     }
 
     // Palindrome
@@ -126,22 +133,17 @@ public class Main {
     // Longest Substring Without Repeating Characters
     // Find the length of the longest substring in a given string that contains no repeating characters.
     public static int lengthOfLongestSubstring(String s) {
-        int i = 0;
-        int j;
         int maxLength = 0;
-        StringBuilder temporary = new StringBuilder();
+        int start = 0;
+        Map<Character, Integer> charIndex = new HashMap<>();
 
-        while (i < s.length() && s.length() - i > maxLength) {
-            j = i;
-            while (j < s.length() && !temporary.toString().contains(String.valueOf(s.charAt(j)))) {
-                temporary.append(s.charAt(j));
-                j++;
+        for (int end = 0; end < s.length(); end++) {
+            char currentChar = s.charAt(end);
+            if (charIndex.containsKey(currentChar)) {
+                start = Math.max(start, charIndex.get(currentChar) + 1);
             }
-            if (maxLength < temporary.length()) {
-                maxLength = temporary.length();
-            }
-            temporary = new StringBuilder();
-            i++;
+            charIndex.put(currentChar, end);
+            maxLength = Math.max(maxLength, end - start + 1);
         }
         return maxLength;
     }
@@ -284,25 +286,11 @@ public class Main {
         Set<Character> vowels = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
         int count = 0;
         for (char c : s.toCharArray()) {
-            if (vowels.contains(c)) {
+            if (vowels.contains(Character.toLowerCase(c))) {
                 count++;
             }
         }
         return count;
-    }
-
-    // Remove element
-    public static int removeElement(int[] nums, int val) {
-        int k = 0; // Pointer for the next insertion position
-
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != val) {
-                nums[k] = nums[i];
-                k++;
-            }
-        }
-
-        return k;
     }
 
     // First unique character
